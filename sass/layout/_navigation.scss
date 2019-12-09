@@ -1,0 +1,140 @@
+.nav {
+    &__checkbox {
+        opacity: 0;
+    }
+
+    &__label {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 4rem;
+        right: 5rem;
+        background-color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        z-index: 200;
+        cursor: pointer;
+        color: transparent;
+    }
+
+    &__icon {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &,
+        &::before,
+        &::after{
+            width: 3rem;
+            height: 2px;
+            background-color: $color-gray;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+            
+        }
+
+        &::before {
+            top: -.8rem;
+            
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__label:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__label:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__label &__icon{
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__label &__icon::before{
+        top:0;
+        transform: rotate(45deg);
+    }
+
+    &__checkbox:checked + &__label &__icon::after{
+        top:0;
+        transform: rotate(-45deg);
+    }
+
+    &__background {
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 4.5rem;
+        right: 5.5rem;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        transition: all .4s ease;
+        z-index: 100;
+    }
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+
+
+    &__menu {
+        opacity: 0;
+        visibility: hidden;
+        transition: all .1s .1s;
+    }
+
+    &__checkbox:checked ~ &__menu {
+        // transform: translate(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__list {
+        list-style: none;
+        text-transform: uppercase;
+        font-size: 2rem;
+        letter-spacing: 5px;
+        color: $color-white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 150;
+        text-align: center;
+    }
+
+    &__item {
+        margin-bottom: 3rem;
+
+
+        
+    }
+
+    &__link {
+        padding: 2rem;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+        transition: all .3s;
+        background-size: 250%;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            background-position-x: 100%;
+            color: $color-primary;
+
+        }
+        
+    }
+}

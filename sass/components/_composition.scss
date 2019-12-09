@@ -1,0 +1,93 @@
+.composition {
+    position: relative;
+    &__image {
+        width: 65%;
+        position: absolute;
+        z-index: 10;
+        outline-offset: 2rem;
+        transition: all .2s;
+
+        @include respond(tab-land){
+            width: 60%;
+        }
+
+        @include respond(tab-port){
+            width: 40%;
+            
+        }
+
+        &--1{
+            top: 1rem;
+            left: -3rem;
+
+            @include respond(tab-land){
+                left: -1rem;
+            }
+
+            @include respond(tab-port){
+                top: 3rem;
+                left: 25%;
+                transform: translateX(-50%);
+                box-shadow: 0 1.4rem 3rem rgba($color-black, .2);
+            }
+        }
+    
+        &--2{
+            top: 3rem;
+            left: 18rem;
+
+            @include respond(tab-land){
+                left: 15rem;
+            }
+
+            @include respond(tab-port){
+                top: 3rem;
+                left: 75%;
+                transform: translateX(-50%);
+                box-shadow: 0 1.4rem 3rem rgba($color-black, .2);
+            }
+        }
+    
+        &--3{
+            top: 10rem;
+            left: 5rem;
+
+            @include respond(tab-land){
+                top: 8rem;
+            }
+
+            @include respond(tab-port){
+                top: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 1.4rem 3rem rgba($color-black, .2);
+            }
+        }
+
+        &:hover {
+            transform: scale(1.2);
+            z-index: 20;
+            box-shadow: 0 1.4rem 3rem rgba($color-black, .2);
+            outline: 1.5rem solid $color-primary-light;
+
+            @include respond(tab-port){
+                transform: translateX(-50%);
+                outline: 0;
+                z-index: 0;
+            }
+        }
+    }
+
+    &:hover &__image:not(:hover){
+        transform: scale(.95);
+
+        @include respond(tab-port){
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+    }
+
+
+
+
+}
